@@ -40,38 +40,26 @@ export default function Hero() {
           </div>
         </div>
 
-        <div
-          className="relative order-1 flex min-h-[26rem] items-end justify-center overflow-hidden rounded-bl-[90px] sm:min-h-[32rem] lg:order-2 lg:min-h-0 lg:items-stretch lg:justify-end lg:rounded-bl-[140px]"
-          style={{ backgroundColor: "#38160F" }}
-        >
-          <div
-            aria-hidden="true"
-            className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-gold/30 blur-3xl"
+        <div className="relative order-1 min-h-[26rem] overflow-hidden rounded-bl-[90px] sm:min-h-[32rem] lg:order-2 lg:min-h-0 lg:rounded-bl-[140px]">
+          <Image
+            src="/images/wigs/woman.jpg"
+            alt="Fèyíshọpé Luxe, premium human hair"
+            fill
+            priority
+            sizes="(min-width: 1024px) 45vw, 90vw"
+            className="object-cover object-top"
           />
-          <div
-            aria-hidden="true"
-            className="absolute bottom-0 left-0 h-56 w-56 rounded-full bg-ivory/10 blur-2xl"
-          />
+          <div className="absolute inset-0 bg-gradient-to-t from-burgundy/35 via-transparent to-transparent" />
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute right-4 top-8 hidden font-serif-display text-[15px] font-bold uppercase tracking-[0.6em] text-transparent lg:block"
+            className="pointer-events-none absolute right-4 top-8 z-10 hidden font-serif-display text-[15px] font-bold uppercase tracking-[0.6em] text-transparent lg:block"
             style={{
               writingMode: "vertical-rl",
-              WebkitTextStroke: "1.5px rgba(251,248,243,0.75)",
+              WebkitTextStroke: "1.5px rgba(251,248,243,0.85)",
             }}
           >
             Fèyíshọpé Luxe
           </span>
-          <div className="relative h-full w-full max-w-[30rem] lg:max-w-none">
-            <Image
-              src="/images/wigs/woman.png"
-              alt="Fèyíshọpé Luxe, premium human hair"
-              fill
-              priority
-              sizes="(min-width: 1024px) 45vw, 90vw"
-              className="object-contain object-bottom lg:object-[center_bottom]"
-            />
-          </div>
         </div>
       </div>
     </section>
