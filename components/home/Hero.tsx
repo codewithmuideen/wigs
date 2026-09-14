@@ -42,7 +42,7 @@ export default function Hero() {
 
         <div
           className="relative order-1 flex min-h-[26rem] items-end justify-center overflow-hidden rounded-bl-[90px] sm:min-h-[32rem] lg:order-2 lg:min-h-0 lg:items-stretch lg:justify-end lg:rounded-bl-[140px]"
-          style={{ backgroundColor: "#6B3A28" }}
+          style={{ backgroundColor: "#38160F" }}
         >
           <div
             aria-hidden="true"
