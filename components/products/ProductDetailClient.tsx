@@ -2,11 +2,11 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Heart, Minus, Plus, RotateCcw, ShieldCheck, Truck } from "lucide-react";
 import { Product } from "@/lib/types";
 import { formatGBP } from "@/lib/format";
 import { useApp } from "@/components/providers/AppProvider";
-import HairArt from "@/components/ui/HairArt";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import ProductCard from "@/components/products/ProductCard";
 import { getRelatedProducts } from "@/lib/products";
@@ -39,23 +39,32 @@ export default function ProductDetailClient({ product }: { product: Product }) {
 
       <div className="mt-5 grid gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
-          <div className="overflow-hidden rounded-sm">
-            <HairArt seed={`${product.id}-${activeImage}`} className="aspect-[4/5] w-full" />
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm">
+            <Image
+              src={product.images[activeImage] ?? product.images[0]}
+              alt={product.name}
+              fill
+              priority
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover"
+            />
           </div>
-          <div className="mt-3 grid grid-cols-4 gap-3">
-            {product.images.map((img, i) => (
-              <button
-                key={img}
-                onClick={() => setActiveImage(i)}
-                className={`overflow-hidden rounded-sm border-2 transition ${
-                  activeImage === i ? "border-burgundy" : "border-transparent"
-                }`}
-                aria-label={`View image ${i + 1}`}
-              >
-                <HairArt seed={`${product.id}-${i}`} className="aspect-square w-full" />
-              </button>
-            ))}
-          </div>
+          {product.images.length > 1 && (
+            <div className="mt-3 grid grid-cols-4 gap-3">
+              {product.images.map((img, i) => (
+                <button
+                  key={img}
+                  onClick={() => setActiveImage(i)}
+                  className={`relative aspect-square w-full overflow-hidden rounded-sm border-2 transition ${
+                    activeImage === i ? "border-burgundy" : "border-transparent"
+                  }`}
+                  aria-label={`View image ${i + 1}`}
+                >
+                  <Image src={img} alt="" fill sizes="120px" className="object-cover" />
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         <div>

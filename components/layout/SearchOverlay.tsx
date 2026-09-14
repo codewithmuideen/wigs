@@ -2,11 +2,11 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Search, TrendingUp, X } from "lucide-react";
 import { useApp } from "@/components/providers/AppProvider";
 import { products } from "@/lib/products";
 import { formatGBP } from "@/lib/format";
-import HairArt from "@/components/ui/HairArt";
 
 const popularSearches = ["Body Wave", "HD Lace", "Bob Wig", "Bundles", "Ponytail", "Curly"];
 
@@ -112,7 +112,9 @@ export default function SearchOverlay() {
                   onClick={() => setSearchOpen(false)}
                   className="flex items-center gap-4 rounded-sm p-2 transition hover:bg-sand/30"
                 >
-                  <HairArt seed={p.id} className="h-16 w-14 shrink-0 rounded-sm" />
+                  <div className="relative h-16 w-14 shrink-0 overflow-hidden rounded-sm">
+                    <Image src={p.images[0]} alt={p.name} fill sizes="56px" className="object-cover" />
+                  </div>
                   <div className="flex-1">
                     <p className="text-sm font-medium text-burgundy">{p.name}</p>
                     <p className="text-xs text-ink/55">

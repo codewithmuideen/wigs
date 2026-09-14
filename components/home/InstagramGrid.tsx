@@ -1,10 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import { Camera } from "lucide-react";
-import HairArt from "@/components/ui/HairArt";
 import { useApp } from "@/components/providers/AppProvider";
 
-const tiles = ["ig-1", "ig-2", "ig-3", "ig-4", "ig-5", "ig-6"];
+const tiles = [
+  "/images/wigs/w-group-four-colours.jpg",
+  "/images/wigs/w-curly-pixie-profile.jpg",
+  "/images/wigs/w-bob-blonde-bright.jpg",
+  "/images/wigs/w-deepwave-caramel-portrait.jpg",
+  "/images/wigs/w-curly-bob-black.jpg",
+  "/images/wigs/w-portrait-pink-blazer.jpg",
+];
 
 export default function InstagramGrid() {
   const { showComingSoon } = useApp();
@@ -17,9 +24,9 @@ export default function InstagramGrid() {
         <p className="mt-2 text-sm text-ink/60">Tag us to be featured on our page</p>
       </div>
       <div className="grid grid-cols-3 gap-2 sm:gap-3 lg:grid-cols-6">
-        {tiles.map((seed) => (
+        {tiles.map((src) => (
           <button
-            key={seed}
+            key={src}
             onClick={() =>
               showComingSoon(
                 "Instagram Feed Coming Soon",
@@ -28,7 +35,13 @@ export default function InstagramGrid() {
             }
             className="group relative block aspect-square overflow-hidden rounded-sm"
           >
-            <HairArt seed={seed} className="h-full w-full transition-transform duration-500 group-hover:scale-105" />
+            <Image
+              src={src}
+              alt=""
+              fill
+              sizes="(min-width: 1024px) 16vw, 33vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
             <div className="absolute inset-0 flex items-center justify-center bg-burgundy/0 transition group-hover:bg-burgundy/40">
               <Camera
                 size={20}

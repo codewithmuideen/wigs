@@ -1,6 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import { NavMenu } from "@/lib/nav";
-import HairArt from "@/components/ui/HairArt";
 import { ArrowRight } from "lucide-react";
 
 export default function MegaMenu({ menu, onNavigate }: { menu: NavMenu; onNavigate: () => void }) {
@@ -27,8 +27,14 @@ export default function MegaMenu({ menu, onNavigate }: { menu: NavMenu; onNaviga
             </ul>
           </div>
         ))}
-        <Link href={menu.promo.href} onClick={onNavigate} className="group relative block overflow-hidden rounded-sm">
-          <HairArt seed={menu.promo.seed} dark className="aspect-[4/5] w-full" />
+        <Link href={menu.promo.href} onClick={onNavigate} className="group relative block aspect-[4/5] w-full overflow-hidden rounded-sm">
+          <Image
+            src={menu.promo.image}
+            alt={menu.promo.title}
+            fill
+            sizes="18rem"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+          />
           <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-burgundy/90 via-burgundy/10 to-transparent p-5">
             <p className="font-serif-display text-lg text-ivory">{menu.promo.title}</p>
             <p className="mt-1 text-xs text-ivory/75">{menu.promo.subtitle}</p>

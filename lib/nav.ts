@@ -7,7 +7,7 @@ export interface NavMenu {
   label: string;
   href: string;
   columns: { heading: string; links: NavLinkItem[] }[];
-  promo: { title: string; subtitle: string; href: string; seed: string };
+  promo: { title: string; subtitle: string; href: string; image: string };
 }
 
 export const wigsMenu: NavMenu = {
@@ -39,7 +39,7 @@ export const wigsMenu: NavMenu = {
     title: "The Luxury Collection",
     subtitle: "Our finest virgin hair, reserved for the wigs we are proudest of.",
     href: "/shop?collection=Luxury Collection",
-    seed: "promo-wigs",
+    image: "/images/wigs/w-salon-bodywave-studio.jpg",
   },
 };
 
@@ -70,7 +70,7 @@ export const hairMenu: NavMenu = {
     title: "Raw Bundle Sets",
     subtitle: "Cuticle aligned, tangle free, built for a flawless install.",
     href: "/shop?type=Bundle",
-    seed: "promo-hair",
+    image: "/images/stock/cat-bundles.jpg",
   },
 };
 
@@ -99,7 +99,7 @@ export const collectionsMenu: NavMenu = {
     title: "Bridal Edit",
     subtitle: "Soft, romantic textures made for the moments that matter.",
     href: "/shop?collection=Bridal",
-    seed: "promo-bridal",
+    image: "/images/stock/product-p8.jpg",
   },
 };
 

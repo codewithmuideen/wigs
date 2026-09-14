@@ -1,6 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import { textures, lengthOptions } from "@/lib/products";
-import HairArt from "@/components/ui/HairArt";
 
 export default function TextureLength() {
   return (
@@ -12,10 +12,15 @@ export default function TextureLength() {
           <div className="mt-8 grid grid-cols-3 gap-3">
             {textures.map((t) => (
               <Link key={t.slug} href={`/shop?texture=${t.name}`} className="group text-center">
-                <HairArt
-                  seed={t.slug}
-                  className="aspect-square w-full rounded-full transition-transform duration-500 group-hover:scale-105"
-                />
+                <div className="relative aspect-square w-full overflow-hidden rounded-full">
+                  <Image
+                    src={t.image}
+                    alt={t.name}
+                    fill
+                    sizes="120px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
                 <span className="mt-2 block text-xs font-medium text-ink/75 group-hover:text-burgundy">
                   {t.name}
                 </span>

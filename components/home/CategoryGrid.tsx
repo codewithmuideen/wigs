@@ -1,7 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { categories } from "@/lib/products";
-import HairArt from "@/components/ui/HairArt";
 
 export default function CategoryGrid() {
   return (
@@ -23,9 +23,15 @@ export default function CategoryGrid() {
           <Link
             key={cat.slug}
             href={`/shop?category=${cat.slug}`}
-            className="group relative block overflow-hidden rounded-sm"
+            className="group relative block aspect-[4/5] w-full overflow-hidden rounded-sm"
           >
-            <HairArt seed={cat.slug} className="aspect-[4/5] w-full transition-transform duration-700 group-hover:scale-105" />
+            <Image
+              src={cat.image}
+              alt={cat.name}
+              fill
+              sizes="(min-width: 768px) 33vw, 50vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
             <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-burgundy/85 via-burgundy/5 to-transparent p-4 sm:p-5">
               <p className="font-serif-display text-base text-ivory sm:text-xl">{cat.name}</p>
               <p className="mt-0.5 text-[11px] text-ivory/70 sm:text-xs">{cat.description}</p>

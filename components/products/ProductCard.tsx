@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Heart, ShoppingBag } from "lucide-react";
 import { Product } from "@/lib/types";
 import { formatGBP } from "@/lib/format";
-import HairArt from "@/components/ui/HairArt";
 import { useApp } from "@/components/providers/AppProvider";
 
 const badgeClasses: Record<string, string> = {
@@ -24,12 +24,21 @@ export default function ProductCard({ product }: { product: Product }) {
     <div className="group relative flex flex-col">
       <Link href={`/products/${product.slug}`} className="relative block overflow-hidden rounded-sm bg-sand/40">
         <div className="relative aspect-[3/4] w-full">
-          <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0">
-            <HairArt seed={product.id} className="h-full w-full" />
-          </div>
-          <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-            <HairArt seed={product.id + "-alt"} className="h-full w-full" />
-          </div>
+          <Image
+            src={product.images[0]}
+            alt={product.name}
+            fill
+            sizes="(min-width: 1024px) 22vw, (min-width: 640px) 33vw, 50vw"
+            className="object-cover transition-opacity duration-500 group-hover:opacity-0"
+          />
+          <Image
+            src={product.images[1] ?? product.images[0]}
+            alt=""
+            aria-hidden="true"
+            fill
+            sizes="(min-width: 1024px) 22vw, (min-width: 640px) 33vw, 50vw"
+            className="object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          />
         </div>
 
         <div className="absolute left-2.5 top-2.5 flex flex-col gap-1.5">

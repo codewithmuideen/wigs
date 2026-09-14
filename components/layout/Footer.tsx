@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Camera, Globe, Music2, Send } from "lucide-react";
+import { Camera, Globe, Music2, Send, ShieldCheck } from "lucide-react";
 import Logo from "@/components/layout/Logo";
 import { useApp } from "@/components/providers/AppProvider";
 
@@ -131,7 +131,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-ivory/10 pt-6 text-xs text-ivory/50 sm:flex-row">
+        <div className="mt-10 flex items-center justify-center gap-2 border-t border-ivory/10 pt-6 text-[11px] text-ivory/45">
+          <ShieldCheck size={13} className="text-gold/70" />
+          Secure checkout · Visa · Mastercard · PayPal · Klarna
+        </div>
+
+        <div className="mt-4 flex flex-col items-center justify-between gap-4 text-xs text-ivory/50 sm:flex-row">
           <p>© {new Date().getFullYear()} Fèyíshọpé Luxe. All rights reserved.</p>
           <div className="flex items-center gap-5">
             <span>United Kingdom</span>

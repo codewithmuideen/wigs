@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
 import { useApp } from "@/components/providers/AppProvider";
 import Drawer from "@/components/ui/Drawer";
 import Button, { buttonClasses } from "@/components/ui/Button";
-import HairArt from "@/components/ui/HairArt";
 import { formatGBP } from "@/lib/format";
 
 export default function CartDrawer() {
@@ -43,7 +43,9 @@ export default function CartDrawer() {
           <ul className="flex-1 space-y-5 overflow-y-auto px-5 py-5">
             {cart.map((line) => (
               <li key={line.key} className="flex gap-4">
-                <HairArt seed={line.key} className="h-24 w-20 shrink-0 rounded-sm" />
+                <div className="relative h-24 w-20 shrink-0 overflow-hidden rounded-sm">
+                  <Image src={line.image} alt={line.name} fill sizes="80px" className="object-cover" />
+                </div>
                 <div className="flex flex-1 flex-col">
                   <div className="flex items-start justify-between gap-2">
                     <div>

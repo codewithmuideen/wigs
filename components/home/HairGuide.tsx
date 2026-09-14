@@ -1,13 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import HairArt from "@/components/ui/HairArt";
-
-const guides = [
-  { title: "How to Choose Your First Wig", slug: "how-to-choose-a-wig", seed: "guide-choose" },
-  { title: "Measuring Your Head, Made Simple", slug: "how-to-measure-your-head", seed: "guide-measure" },
-  { title: "Caring for Human Hair at Home", slug: "how-to-care-for-human-hair", seed: "guide-care" },
-  { title: "Understanding Lace Types", slug: "lace-guide", seed: "guide-lace" },
-];
+import { articles } from "@/lib/journal";
 
 export default function HairGuide() {
   return (
@@ -26,11 +20,19 @@ export default function HairGuide() {
           </Link>
         </div>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {guides.map((g) => (
-            <Link key={g.slug} href={`/journal/${g.slug}`} className="group block overflow-hidden rounded-sm bg-ivory">
-              <HairArt seed={g.seed} className="aspect-[4/3] w-full transition-transform duration-700 group-hover:scale-105" />
+          {articles.map((a) => (
+            <Link key={a.slug} href={`/journal/${a.slug}`} className="group block overflow-hidden rounded-sm bg-ivory">
+              <div className="relative aspect-[4/3] w-full overflow-hidden">
+                <Image
+                  src={a.image}
+                  alt={a.title}
+                  fill
+                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
               <div className="p-4">
-                <p className="font-serif-display text-base text-burgundy">{g.title}</p>
+                <p className="font-serif-display text-base text-burgundy">{a.title}</p>
                 <span className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-bronze">
                   Read More <ArrowRight size={12} />
                 </span>
