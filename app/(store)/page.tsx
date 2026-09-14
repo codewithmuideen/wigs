@@ -1,12 +1,16 @@
 import Hero from "@/components/home/Hero";
+import AboutTeaser from "@/components/home/AboutTeaser";
+import ValueProps from "@/components/home/ValueProps";
 import CategoryGrid from "@/components/home/CategoryGrid";
 import ProductRail from "@/components/home/ProductRail";
 import TextureLength from "@/components/home/TextureLength";
+import HowItWorks from "@/components/home/HowItWorks";
 import Editorial from "@/components/home/Editorial";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import Reviews from "@/components/home/Reviews";
 import HairGuide from "@/components/home/HairGuide";
 import InstagramGrid from "@/components/home/InstagramGrid";
+import HomeFaq from "@/components/home/HomeFaq";
 import NewsletterBand from "@/components/home/NewsletterBand";
 import { products } from "@/lib/products";
 
@@ -17,6 +21,8 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <AboutTeaser />
+      <ValueProps />
       <CategoryGrid />
       <ProductRail
         eyebrow="Just In"
@@ -32,11 +38,13 @@ export default function Home() {
         tone="sand"
       />
       <TextureLength />
+      <HowItWorks />
       <Editorial />
       <WhyChooseUs />
       <Reviews />
       <HairGuide />
       <InstagramGrid />
+      <HomeFaq />
       <NewsletterBand />
     </>
   );
