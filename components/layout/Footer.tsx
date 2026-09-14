@@ -99,18 +99,20 @@ export default function Footer() {
       <div className="border-t border-bronze/15 bg-white">
         <div className="mx-auto flex max-w-[1440px] flex-col items-center justify-between gap-5 px-4 py-7 text-sm text-ink/70 sm:flex-row sm:px-6 lg:px-10">
           <p>© {new Date().getFullYear()} Fèyíshọpé Luxe Inc. All Rights Reserved.</p>
-          <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1.5">
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <span className="flex shrink-0 items-center gap-1.5">
               <ShieldCheck size={16} className="text-bronze" />
               Secure Checkout
             </span>
-            <Image
-              src="/images/wigs/paymentb.jpg"
-              alt="Visa, Mastercard, PayPal, Klarna, American Express"
-              width={280}
-              height={40}
-              className="h-10 w-auto object-contain"
-            />
+            <span className="relative h-8 w-40 shrink-0 sm:h-10 sm:w-52">
+              <Image
+                src="/images/wigs/paymentb.jpg"
+                alt="Visa, Mastercard, PayPal, Klarna, American Express"
+                fill
+                sizes="208px"
+                className="object-contain"
+              />
+            </span>
           </div>
           <button
             onClick={() =>
