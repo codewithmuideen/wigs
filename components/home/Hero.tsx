@@ -40,21 +40,24 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative order-1 flex min-h-[26rem] items-end justify-center overflow-hidden bg-sand rounded-bl-[90px] sm:min-h-[32rem] lg:order-2 lg:min-h-0 lg:items-stretch lg:justify-end lg:rounded-bl-[140px]">
+        <div
+          className="relative order-1 flex min-h-[26rem] items-end justify-center overflow-hidden rounded-bl-[90px] sm:min-h-[32rem] lg:order-2 lg:min-h-0 lg:items-stretch lg:justify-end lg:rounded-bl-[140px]"
+          style={{ backgroundColor: "#6B3A28" }}
+        >
           <div
             aria-hidden="true"
-            className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-gold/25 blur-3xl"
+            className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-gold/30 blur-3xl"
           />
           <div
             aria-hidden="true"
-            className="absolute bottom-0 left-0 h-56 w-56 rounded-full bg-burgundy/10 blur-2xl"
+            className="absolute bottom-0 left-0 h-56 w-56 rounded-full bg-ivory/10 blur-2xl"
           />
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute right-4 top-8 hidden text-[13px] font-medium uppercase tracking-[0.6em] text-transparent lg:block"
+            className="pointer-events-none absolute right-4 top-8 hidden font-serif-display text-[15px] font-bold uppercase tracking-[0.6em] text-transparent lg:block"
             style={{
               writingMode: "vertical-rl",
-              WebkitTextStroke: "1px rgba(56,11,21,0.35)",
+              WebkitTextStroke: "1.5px rgba(251,248,243,0.75)",
             }}
           >
             Fèyíshọpé Luxe
